@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed,jumpForce;
     [HideInInspector] public Rigidbody2D myRB;
     public bool isGround,isMoving,isDie;
+    private Animator myAnimator;
     void Start()
     {
         Initialize();   
@@ -26,18 +27,19 @@ public class Player : MonoBehaviour
     private void Restart(){
         if(isDie){
             isDie=false;
-            //animação de die false
+            myAnimator.SetBool("Dead",false);//animação de die false
         }
     }
     private void Die(){
         if(isDie){
             isMoving = false;
-            //animação de dead true
-            //animação de run false
+           myAnimator.SetBool("Dead",true); //animação de dead true
+           myAnimator.SetBool("Run",false); //animação de run false
         }
     }
     private void Initialize(){
         myRB = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
         isGround = true;
         isMoving = false;
         isDie = false;
@@ -48,7 +50,7 @@ public class Player : MonoBehaviour
     }
     void Run(){
         if(isMoving){
-            //animação de run true
+            myAnimator.SetBool("Run",true);//Animação do Run true
             return;
         }
     }
@@ -56,13 +58,13 @@ public class Player : MonoBehaviour
         if(myRB.velocity.y==0 && isMoving){
             myRB.AddForce(transform.up * jumpForce);
             isGround = false;
-            //animação de jump true
+            myAnimator.SetBool("Jump",true);//animação de jump true
         }
     }
     void CheckOnGround(){
         if(myRB.velocity.y ==0 && !isGround){
             isGround=true;
-            //animação de jump false
+            myAnimator.SetBool("Jump",false);//animação de jump false
         }
     }
 }
