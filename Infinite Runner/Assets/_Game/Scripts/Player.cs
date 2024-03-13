@@ -35,13 +35,14 @@ public class Player : MonoBehaviour
             isMoving = false;
            myAnimator.SetBool("Dead",true); //animação de dead true
            myAnimator.SetBool("Run",false); //animação de run false
+            Pontuacao(false);
         }
     }
     private void Initialize(){
         myRB = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         isGround = true;
-        isMoving = false;
+        isMoving = true;
         isDie = false;
         
         InvokeRepeating("CheckOnGround",0.1f,0.1f);
@@ -51,6 +52,7 @@ public class Player : MonoBehaviour
     void Run(){
         if(isMoving){
             myAnimator.SetBool("Run",true);//Animação do Run true
+            Pontuacao(true);
             return;
         }
     }
@@ -66,5 +68,9 @@ public class Player : MonoBehaviour
             isGround=true;
             myAnimator.SetBool("Jump",false);//animação de jump false
         }
+    }
+    private void Pontuacao(bool valor){
+        GameController tempGameController = FindAnyObjectByType<GameController>();
+            tempGameController.gameStart = valor;
     }
 }

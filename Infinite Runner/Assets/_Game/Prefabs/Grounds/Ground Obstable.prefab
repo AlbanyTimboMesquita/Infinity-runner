@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2053762303288334760}
   - component: {fileID: 8290932437876515436}
+  - component: {fileID: 4672181316461054970}
   m_Layer: 0
   m_Name: Ground Obstable
   m_TagString: Ground
@@ -79,6 +80,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.2034786}
   m_EdgeRadius: 0
+--- !u!114 &4672181316461054970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062964188191511131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b60df2462fc8e47bcec4060cc438a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefab: {fileID: 6337166501805719153, guid: b810f5d45c2c2104caad29a6b39f5cf1, type: 3}
+  spawnPoint: {fileID: 7916181864411926498}
+  percentualAparecimento: 7
 --- !u!1 &7119916768511075479
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 7119916768511075479}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.887, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

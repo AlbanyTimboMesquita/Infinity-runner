@@ -16,7 +16,7 @@ public class BackgroundWidth : MonoBehaviour
         //var altura = sprite.bounds.size.y;
 
         var alturaWorld = Camera.main.orthographicSize*2f;
-        var larguraWorld = alturaWorld/Screen.height*Screen.width;
+        var larguraWorld = (alturaWorld/Screen.height*Screen.width)+10;
 
         escalaTemp.x = larguraWorld/largura;
        // escalaTemp.y =alturaWorld/altura;
